@@ -7,10 +7,35 @@
   </head>
   <body>
     <div id="content">
-      <div class="tile1"></div>
-      <div class="tile1"></div>
-      <div class="tile1"></div>
-      <div class="tile1"></div>
+
+      <img src='images/1.png' onclick="ic1.next(this)">
+      <img src='images/3.png' onclick="ic2.next(this)">
+      <img src='images/6.png' onclick="ic1.next(this)">
+      <img src='images/4.png' onclick="ic2.next(this)">
+
     </div>
+
+  <script>
+    //This class will manage cycling through a list of images
+    function ImageCollection(images) {
+    this.images = images;
+    this.i = 0;
+    this.next = function(img) {
+      this.i++;
+      if (this.i == images.length)
+        this.i = 0;
+        img.src = images[this.i];
+      }
+    }
+
+    /*
+    Create an ImageCollection object for each image gallery.
+    Pass each one an array of image urls to be scrolled through
+    */
+    var ic1 = new ImageCollection(['images/1.png','images/10.png', 'images/2.png']);
+    var ic2 = new ImageCollection(['images/5.png','images/4.png', 'images/3.png']);
+
+
+  </script>
   </body>
 </html>

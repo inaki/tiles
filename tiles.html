@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Tiles & Patterns</title>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/ico" href="favicon.ico"/>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <style>
+
+      body, html {
+        height: 100%;
+        background-color: #F8F8F8;
+        font-family: 'Montserrat', sans-serif;
+        text-align: center;
+      }
+      #content {
+        width: 560px;
+        height: 560px;
+        background-color: white;
+        margin: 0 auto;
+        margin-top: 30px;
+      }
+      img {
+        position: relative;
+        float: left;
+        width: 140px;
+        height: 140px;
+        background-color: #666;
+      }
+      .title {
+        font-size: 3em;
+        margin-right: auto;
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="title">Tiles & Patterns</div>
+    <p>Click around and have fun!</p>
+    <div id="content">
+      <img src='images/1.png' onclick="ic1.next(this)">
+      <img src='images/3.png' onclick="ic2.next(this)">
+      <img src='images/6.png' onclick="ic3.next(this)">
+      <img src='images/4.png' onclick="ic4.next(this)">
+      <img src='images/3.png' onclick="ic2.next(this)">
+      <img src='images/6.png' onclick="ic3.next(this)">
+      <img src='images/4.png' onclick="ic4.next(this)">
+      <img src='images/1.png' onclick="ic1.next(this)">
+      <img src='images/3.png' onclick="ic2.next(this)">
+      <img src='images/4.png' onclick="ic4.next(this)">
+      <img src='images/1.png' onclick="ic1.next(this)">
+      <img src='images/6.png' onclick="ic3.next(this)">
+      <img src='images/3.png' onclick="ic2.next(this)">
+      <img src='images/1.png' onclick="ic1.next(this)">
+      <img src='images/6.png' onclick="ic3.next(this)">
+      <img src='images/4.png' onclick="ic4.next(this)">
+    </div>
+
+  <script>
+    //This class will manage cycling through a list of images
+    function ImageCollection(images) {
+    this.images = images;
+    this.i = 0;
+    this.next = function(img) {
+      this.i++;
+      if (this.i == images.length)
+        this.i = 0;
+        img.src = images[this.i];
+      }
+    }
+
+    /*
+    Create an ImageCollection object for each image gallery.
+    Pass each one an array of image urls to be scrolled through
+    */
+    var ic1 = new ImageCollection(['images/1.png', 'images/2.png', 'images/3.png','images/4.png', 'images/5.png', 'images/6.png','images/7.png', 'images/8.png', 'images/9.png']);
+    var ic2 = new ImageCollection(['images/9.png','images/8.png', 'images/7.png', 'images/6.png','images/5.png', 'images/4.png', 'images/3.png','images/2.png', 'images/1.png']);
+    var ic3 = new ImageCollection(['images/5.png','images/4.png', 'images/3.png', 'images/2.png','images/1.png', 'images/8.png','images/9.png', 'images/7.png', 'images/6.png']);
+    var ic4 = new ImageCollection(['images/6.png','images/1.png', 'images/2.png', 'images/9.png','images/8.png', 'images/7.png', 'images/5.png' 'images/4.png', 'images/3.png']);
+
+  </script>
+  </body>
+</html>
